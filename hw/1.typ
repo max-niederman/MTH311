@@ -32,11 +32,11 @@ $
 =& (k(k+1)(2k+1))/6 + (k+1)^2 \
 =& (k(k+1)(2k+1) + 6(k+1)^2)/6 \
 =& ((k+1)(k(2k+1) + 6(k+1)))/6 \
-$
-$
 =& ((k+1)(2k^2 + k + 6k + 6))/6 \
 =& ((k+1)(2k^2 + 7k + 6))/6 \
 =& ((k+1)(k + 2)(2k + 3))/6 \
+$
+$
 =& ((k+1)((k+1)+1)(2(k+1) + 1))/6 "."
 $
 
@@ -86,14 +86,16 @@ Multiplying both sides by $4$ gives
 $
 4(1 + 3k) &<= 4^(k+1) \
 4 + 12k &<= 4^(k+1) \
-1 + 12k + 3 &<= 4^(k+1) "."
 $
 
 We know $k$ is positive, so
-$ 1 + 3k + 3 <= 1 + 12k + 3 "." $
+$ 4 + 3k <= 4 + 12k "." $
 
 Therefore, by the transitive property of inequality,
-$ 1 + 3(k+1) <= 4^(k+1) "." $
+$
+4 + 3k &<= 4^(k+1) \
+1 + 3(k+1) &<= 4^(k+1) "."
+$
 
 And by induction, we have $1 + 3n <= 4^n$ for all $n in NN$.
 
@@ -101,7 +103,7 @@ And by induction, we have $1 + 3n <= 4^n$ for all $n in NN$.
 
 == (b)
 
-_Proposition:_ For all $n in NN$ such that $n >= 3$, $1 + 2n <= 2^n$.
+_Proposition:_ For all $n in NN$ such that $n >= 3$, we have that $1 + 2n <= 2^n$.
 
 _Proof:_
 
@@ -110,7 +112,7 @@ If $n = 3$, then $1 + 2n = 7$, which is less than $2^n = 8$.
 Take $k in NN$ such that $k >= 3$ and $1 + 2k <= 2^k$.
 Multiplying both sides by $2$ gives
 $
-2(1 + 2k) &<= 2^(k+1) \
+2(1 + 2k) &<= 2(2^(k)) \
 2 + 4k &<= 2^(k+1) "."
 $
 
@@ -162,37 +164,45 @@ Hence, $n^2 <= 3^n$ for all $n in NN$ by the principle of induction.
 
 = 1.3.4
 
-_Proposition:_ For any $n in NN union {0}$ and real number $a != 1$,
+_Proposition:_ For any $n in NN$ and real number $a != 1$,
 $ sum_(k=0)^n a^k = (1 - a^(n + 1)) / (1 - a) "." $
 
 _Proof:_
 
-For $n = 0$, we have
-$ sum_(k=0)^0 a^k = 1 = (1 - a^(0 + 1)) / (1 - a) "." $
+For $n = 1$, we have
+$
+sum_(k=0)^1 a^k
+&= 1 + a \
+&= ((1 + a)(1 - a)) / (1 - a) \
+&= (1 - a^2) / (1 - a) "."
+$
 
-Assume that the proposition holds for some $n in NN union {0}$.
+So the proposition holds for $n = 1$.
+
+Now, assume that the proposition holds for some $m in NN$.
 Observe that
 $
-sum_(k=0)^(n + 1) a^k
-&= 1 + sum_(k=0)^n a^(k + 1) \
-&= 1 + a sum_(k=0)^n a^k \
-&= 1 + a (1 - a^(n + 1)) / (1 - a) \
-&= (1 - a + a - a^(n + 2)) / (1 - a) \
-&= (1 - a^(n + 2)) / (1 - a) \
-&= (1 - a^((n+1) + 1)) / (1 - a) "."
+sum_(k=0)^(m + 1) a^k
+&= 1 + sum_(k=1)^(m + 1) a^k \
+&= 1 + a sum_(k=0)^m a^k \
+&= 1 + a (1 - a^(m + 1)) / (1 - a) \
+&= (1 - a + a - a^(m + 2)) / (1 - a) \
+&= (1 - a^(m + 2)) / (1 - a) \
+&= (1 - a^((m+1) + 1)) / (1 - a) "."
 $
 
-By the principle of induction, the proposition holds for all $n in NN union {0}$.
+By the principle of induction, the proposition holds for all $n in NN$.
 
 #sym.qed
 
 = 1.3.6
 
-_Proposition:_ For any real number $a >= -1$ and $n in NN$, $ (1+ a)^n >= 1 + n a^n "." $
+_Proposition:_ For any real $a >= -1$ and $n in NN$,
+$ (1+ a)^n >= 1 + n a "." $
 
 _Proof:_
 
-For $n = 1$, we have $(1 + a)^1 = 1 + a$ which is equal to $1 + 1 dot a^1 = 1 + a$.
+For $n = 1$, we have $(1 + a)^1 = 1 + a$ which is equal to $1 + 1 a = 1 + a$.
 Therefore, the proposition holds for $n = 1$.
 
 Now assume that it holds for some $k in NN$.
