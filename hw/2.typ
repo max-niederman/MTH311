@@ -270,4 +270,108 @@ so the element where $n = 1$, which is $3/2$, is an upper bound.
 We've shown an upper bound which is an element of the set,
 so it follows by similar logic to the infimum that $3/2$ is the supremum.
 
+#sym.qed
+
+== (b)
+
+_Proposition_: The set
+$ { (3n)/(n+4) : n in NN } $
+is bounded above and below,
+with a supremum of $3$ and an infimum of $3/5$.
+
+_Proof_:
+
+=== Infimum
+
+First, let us show that $(3n) / (n + 4)$ is monotonically increasing in $n$:
+$
+0 &< 4 \
+n^2 + 5n &< n^2 + 5n + 4 \
+n(n + 5) &< (n + 1)(n + 4) \
+$
+
+And $n$ is a natural number and therefore positive, so
+we can divide by $(n + 4)(n + 5)$ to get
+$
+n / (n + 4) &< (n + 1) / (n + 5) \
+3n / (n + 4) &< 3(n + 1) / (n + 5) \
+(3n) / (n + 4) &< (3(n + 1)) / ((n + 1) + 4) "."
+$
+
+Hence, the element corresponding to $n = 1$ is the minimum, and therefore the infimum, of the set:
+$ (3(1)) / ((1) + 4) = 3/5 "." $
+
+=== Supremum
+
+Observe that
+$
+0 &< 12 \
+3n &< 3n + 12 \
+3n &< 3(n + 4) \
+(3n)/(n+4) &< 3 \
+$
+
+So $3$ is an upper bound of the set.
+
+Now suppose by contradiction that there exists some $L < 3$ which is also an upper bound of the set.
+
+Define $epsilon = 3 - L$ so that $epsilon > 0$,
+and let $n = max(1, ceil(12/epsilon - 4))$ so that $n in NN$ is greater than or equal to $12/epsilon - 4$.
+
+Then consider the element corresponding to $n$.
+Because of the definition of $n$, we have
+
+$
+n &> 12/epsilon - 4 \
+n + 4 &> 12/epsilon \
+epsilon(n + 4) &> 12 \
+epsilon &> 12/(n + 4) \
+3 - epsilon &< 3 - 12/(n + 4) \
+3 - epsilon &< (3(n + 4) - 12)/(n + 4) \
+3 - epsilon &< (3n) / (n + 4) \
+3 - (3 - L) &< (3n) / (n + 4) \
+L &< (3n) / (n + 4) "."
+$
+
+So there is an element of the set greater than $L$,
+contradicting the assumption that $L$ is an upper bound.
+Therefore, there exists no upper bound less than $3$,
+and $3$ is the supremum of the set.
+
+#sym.qed
+
+== (c)
+
+TODO
+
+== (d)
+
+TODO
+
 = 1.6.3
+
+_Proposition_:
+For any $x in RR$ and $n in NN$, there exists $r in QQ$ such that $|x - r| < 1/n$.
+
+_Proof_:
+
+Because $n$ is positive, we can divide both sides of $0 < 1$ to get $0 < 1/n$.
+Similarly, we can divide both sides of $-1 < 0$ to find $-1/n < 0$,
+and by transitivity we have $-1/n < 1/n$.
+
+Adding $x$ to both sides of the second inequality gives
+$ x - 1/n < x + 1/n "." $
+
+We can now apply the density of the rationals to find that there exists $r in QQ$ such that
+$ x - 1/n < r < x + 1/n "." $
+
+Now, subtracting $x$ from all sides gives
+$ -1/n < r - x < 1/n "," $
+which is equivalent by Proposition 1.4.2 to
+$
+|r - x| &< 1/n \
+|-(r - x)| &< 1/n \
+|x - r| &< 1/n "."
+$
+
+#sym.qed
