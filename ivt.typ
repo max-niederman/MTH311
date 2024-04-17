@@ -32,7 +32,63 @@ It must be greater than or equal to $b$,
 because if it were less than $b$, it would be in $[0, b)$ and therefore in $A$.
 Therefore, $b$ is a lower bound on $A^c$,
 which contradicts $inf A^c < b$.
-Therefore, the assumption that $A^c$ is nonempty must be false,
+Hence, the assumption that $A^c$ is nonempty must be false,
 and $A supset.eq [0, oo)$.
 
 #sym.qed
+
+#colbreak()
+
+= Increasing Nonnegative Domain
+
+For any $b, L in RR$ and function $f : RR -> RR$,
+if $f$ is continuous on $[0, b]$ and
+$f(0) <= L <= f(b)$,
+then there exists some $c in [0, b]$ such that $f(c) = L$.
+
+_Proof_:
+
+Consider the set
+$
+B =
+{ b in RR | &f "continuous on" [0, b] \
+            &and f(0) <= L <= f(b) \
+            &quad => exists c in [0, b], f(c) = L } "."
+$
+That is, the set of $b$ values for which the proposition holds w.r.t. $f$ and $L$.
+
+== Limit Case
+
+Assume that there is some $x$ such that $[0, b) subset.eq B$,
+and hypothesize that $f$ is continuous on $[0, b]$ and $f(0) <= L <= f(b)$.
+
+If $L = f(b)$, then we have that there exists $c$ such that $f(c) = L$ trivially.
+
+Otherwise, $L < f(b)$ and so $0 < f(b) - L$.
+Then, because $f$ is continuous at $b$, we can apply the limit definition to find that there exists $delta > 0$ such that for all $b' in RR$,
+$ |x - b'| < delta => |f(x) - f(b')| < f(x) - L "." $
+
+Define $b' = max(0, b - delta/2)$.
+Observe that
+$
+b - delta/2 &<= b' \
+b - b' &<= delta/2 \
+b - b' &< delta \
+abs(b - b') &< delta "."
+$
+
+Now we apply the limit to get
+$
+abs(f(b) - f(b')) &< f(b) - L \
+f(b) - f(b') &< f(x) - L \
+- f(b') &< - L \
+L &< f(b') "."
+$
+
+And we already know that $f(0) < L$, so
+$ f(0) < L < f(b') "," $
+and because $b' in [0, b)$,
+we have $c in [0, b')$ such that
+$ f(c) = L "." $
+And $[0, b')$ is a subset of $[0, b)$,
+so that $c$ also satisfies the proposition for $b$.
