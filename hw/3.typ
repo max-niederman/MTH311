@@ -55,7 +55,7 @@ By the principle of induction, the proposition holds for all $n in NN$.
 #sym.qed
 
 
-== Limits of Certain Rational Functions
+== Limits of Certain Rational Sequences
 
 _Proposition_:
 
@@ -63,10 +63,10 @@ Suppose that $P$ and $Q$ are polynomials of order $k$,
 with real coefficients $p_0$ through $p_k$ and $q_0$ through $q_k$ respectively
 such that $q_k != 0$.
 
-Then the limit of the rational function $P(x) / Q(x)$ as $x$ approaches infinity is equal to the ratio of the leading coefficients of $P$ and $Q$.
+Then the limit of the rational sequence $P(n) / Q(n)$ as $n$ approaches infinity is equal to the ratio of the leading coefficients of $P$ and $Q$.
 That is,
 
-$ lim_(x -> oo) P(x) / Q(x) = p_k / q_k "." $
+$ lim_(n -> oo) P(n) / Q(n) = p_k / q_k "." $
 
 _Proof_:
 
@@ -85,8 +85,7 @@ $
 N > max{
   2 (r_(k-1) + 1) / (q_k^2 epsilon),
   M,
-  M',
-  0
+  M'
 }
 $
 
@@ -202,9 +201,39 @@ $ lim_(n->oo) P(x) / Q(x) = p_k / q_k "." $
 
 == (d)
 
+Let $P(n) = 2n^3 - 3$ and $Q(n) = 4n^3 + n$.
+By the previous result, we have
+$
+lim_(n->oo) (2n^3 - 3) / (4n^3 + n) = lim_(n->oo) P(n)/Q(n) = 2/4 = 1/2 "." 
+$
+
+#sym.qed
+
 == (e)
 
+Let $P(n) = -3n^2 + 5$ and $Q(n) = 2n^2 + 1$.
+By the previous result, we have
+$
+lim_(n->oo) (5 - 3n^2) / (2n^2 + 1) = lim_(n->oo) P(n)/Q(n) = -3/2 "."
+$
+
+#sym.qed
+
 == (f)
+
+Let $epsilon > 0$ be given.
+
+Define $P(x) = x + 5$ and $Q(x) = 3x + 2$. Then by the previous result,
+$ lim_(n->oo) (n + 5) / (3n + 2) = lim_(n->oo) P(n)/Q(n) = 1/3 "." $
+So there exists some $M$ such that for all $n > M$,
+$ abs((n + 5) / (3n + 2) - 1/3) < epsilon "." $
+
+Now let $N = M^2$. If we have $n > N$, then $n > M^2$.
+Taking the square root of both sides, we have $sqrt(n) > M$.
+Therefore, by applying the limit definition we have
+$ abs((sqrt(n) + 5) / (3sqrt(n) + 2) - 1/3) < epsilon "." $
+
+#sym.qed
 
 = 2.1.2
 
