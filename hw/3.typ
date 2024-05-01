@@ -239,14 +239,152 @@ $ abs((sqrt(n) + 5) / (3sqrt(n) + 2) - 1/3) < epsilon "." $
 
 == (e)
 
+Let $P(n) = 2n^2 + n + 5$ and $Q(n) = 5n^2 + 1$.
+By the previous result, we have
+$
+lim_(n->oo) (2n^2 + n + 5) / (5n^2 + 1) = lim_(n->oo) P(n)/Q(n) = 2/5 "."
+$
+
+#sym.qed
+
 == (g)
+
+Let $P(n) = 2n^3 + 1$ and $Q(n) = 4n^3 - n$.
+By the previous result, we have
+$
+lim_(n->oo) (2n^3 + 1) / (4n^3 - n) = lim_(n->oo) P(n)/Q(n) = 2/4 = 1/2 "."
+$
 
 == (h)
 
+Let $P(n) = 4n^2 - 1$ and $Q(n) = n^2 - n$.
+By the previous result, we have
+$
+lim_(n->oo) (4n^2 - 1) / (n^2 - n) = lim_(n->oo) P(n)/Q(n) = 4/1 = 4 "."
+$
+
 = 2.1.3
+
+_Proposition_:
+
+Let ${a_n}$ be a sequence converging to some $a in RR$.
+Then the sequence ${abs(a_n)}$ converges to $abs(a)$.
+
+_Proof_:
+
+Let $epsilon > 0$ be given.
+
+Because ${a_n}$ converges to $a$, there exists some $N$ such that for all $n > N$,
+$ abs(a_n - a) < epsilon "." $
+
+By the corollary to the triangle inequality, we have
+$ abs(abs(a_n) - abs(a)) <= abs(a_n - a) "." $
+
+And by transitivity, we have
+$ abs(abs(a_n) - abs(a)) < epsilon "." $
+
+Therefore, ${abs(a_n)}$ converges to $abs(a)$.
+
+#sym.qed
+
+The converse, however, is not true.
+Consider, for example, the sequence ${(-1)^n}$.
+This sequence does not converge, but the sequence of absolute values ${1}$ does converge.
 
 = 2.1.6
 
+_Proposition_:
+
+Let $x_n$ be a bounded sequence and ${y_n}$ a sequence converging to zero.
+Then the sequence ${x_n y_n}$ converges to zero.
+
+_Proof_:
+
+Let $epsilon > 0$ be given.
+
+Because ${x_n}$ is bounded, there exists some $M$ such that for all $n$,
+$ abs(x_n) <= M "." $
+Note that $M$ must be nonnegative, because the absolute value of any real number is nonnegative.
+
+Now let $epsilon' = epsilon / M$. Because ${y_n}$ converges to zero, there exists some $N$ such that for all $n > N$,
+$ abs(y_n - 0) < epsilon' "." $
+
+Or, equivalently,
+$ abs(y_n) < epsilon / M "." $
+
+Multiplying both sides by $M$, we have
+$ M abs(y_n) < epsilon "." $
+
+And because $abs(x_n) <= M$ for all $n$, we have
+$ abs(x_n y_n) = abs(x_n) abs(y_n) <= M abs(y_n) < epsilon "." $
+
+So we have
+$ abs(x_n y_n - 0) < epsilon "." $
+
+Therefore, ${x_n y_n}$ converges to zero.
+
+#sym.qed
+
 = 2.1.8
 
+_Proposition_:
+
+For any $x in RR$, there exists a sequence of rational numbers which converges to $x$.
+
+_Proof_:
+
+By the density of the rationals, we know that for any $n in NN$, there exists a rational number $q_n$ such that $x < q_n < x + 1/n$. Consider the sequence ${q_n}$.
+
+Let $epsilon > 0$ be given.
+
+Then by the Archimedean Property, there exists some $N$ such that $N > 1/epsilon$.
+
+Now for any $n > N$, we have $1/n < 1/N < epsilon$.
+
+By the definition of ${q_n}$, we have
+$ x < q_n < x + 1/n "." $
+
+And $x - 1/n < x$, so we can use transitivity to get
+$ x - 1/n < q_n < x + 1/n "." $
+
+Subtracting $x$ from all sides, we have
+$ -1/n < q_n - x < 1/n "." $
+
+Which is equivalent to
+$ abs(q_n - x) < 1/n < epsilon "." $
+
+Therefore, the sequence ${q_n}$ converges to $x$.
+
+#sym.qed
+
 = 2.1.9
+
+_Proposition_:
+
+For any $x in RR$, there exists a sequence of irrational numbers which converges to $x$.
+
+_Proof_:
+
+By the density of the rationals, we know that for any $n in NN$, there exists a irrational number $a_n$ such that $x < a_n < x + 1/n$. Consider the sequence ${a_n}$.
+
+Let $epsilon > 0$ be given.
+
+Then by the Archimedean Property, there exists some $N$ such that $N > 1/epsilon$.
+
+Now for any $n > N$, we have $1/n < 1/N < epsilon$.
+
+By the definition of ${a_n}$, we have
+$ x < a_n < x + 1/n "." $
+
+And $x - 1/n < x$, so we can use transitivity to get
+$ x - 1/n < a_n < x + 1/n "." $
+
+Subtracting $x$ from all sides, we have
+$ -1/n < a_n - x < 1/n "." $
+
+Which is equivalent to
+$ abs(a_n - x) < 1/n < epsilon "." $
+
+Therefore, the sequence ${a_n}$ converges to $x$.
+
+#sym.qed
