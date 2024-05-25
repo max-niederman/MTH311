@@ -19,6 +19,8 @@
     set math.vec(delim: "[")
     set math.mat(delim: "[")
 
+    show math.equation: set text(features: ("cv01",))
+
     // title
     block(text(weight: 700, 1.75em, title))
 
@@ -33,3 +35,10 @@
 
     common(title: title, margin: margin, body)
 }
+
+#let lemma = block.with(
+    width: 100%,
+    inset: 8pt,
+    radius: 6pt,
+    fill: fuchsia.lighten(80%)
+)
