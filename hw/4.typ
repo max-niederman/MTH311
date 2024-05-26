@@ -237,3 +237,125 @@ And because $x_n$ is rational, we have $f(x_n) = g(x_n)$.
 That is, the sequences are identical, and therefore converge to the same value, $f(x) = g(x)$.
 
 #sym.qed
+
+= 3.4.1
+
+Consider the function $f_gamma : D -> RR$ defined by
+$ f_gamma (x) = f(x) - gamma "." $
+
+Note that $f$ is continuous on $D$ by Theorem 3.3.3 (considering $gamma$ as a constant function $D -> RR$).
+
+We have that $f(c) > gamma$, so
+subtracting $gamma$ from both sides gives $f_gamma (c) < 0$.
+Now we can apply Lemma 3.4.3 to find that there exists $delta > 0$ such that
+$f_gamma (x) > 0$ for every $x in D$ such that $abs(x - c) < delta$.
+
+Now consider any $x in (c - delta, c + delta) sect D$.
+Then
+$
+c - delta < x <& c + delta \
+-delta < x - c <& delta \
+abs(x - c) <& delta "."
+$
+
+Implying that $f_gamma (x) > 0$.
+Finally, adding $gamma$ to both sides gives $f(x) > gamma$.
+
+#sym.qed
+
+= 3.4.2
+
+Consider the function $f - g : [a, b] -> RR$ defined by
+$ (f - g)(x) = f(x) - g(x) "." $
+
+Since $f$ and $g$ are continuous on $[a, b]$, we can apply Theorem 3.3.3 to find that $f - g = f + (-1)g$ is continous on $[a, b]$ also.
+
+We know that $f(a) > g(a)$ and $f(b) < g(b)$, so
+$
+f(a) &> g(a) &wide f(b) &< g(b) \
+f(a) - g(a) &> 0 &wide f(b) - g(b) &< 0 \
+(f - g)(a) &> 0 &wide (f - g)(b) &< 0 \
+$
+
+Therefore, by the Intermediate Value Theorem, there exists $x_0 in (a, b)$ such that $(f - g)(x_0) = 0$.
+
+That is, $f(x_0) - g(x_0) = 0$. So $f(x_0) = g(x_0)$.
+
+#sym.qed
+
+= 3.4.3
+
+Consider the identity and cosine functions on $RR$.
+
+Note that
+- $id(0) = 0 < 1 = cos(0)$ and
+- $id(pi) = pi > -1 = cos(pi)$.
+
+Both the identity and cosine functions are continuous on $RR$,
+so we can apply the solution to the last problem to find that there exists $x in (0, pi)$ such that $id(x) = cos(x)$.
+
+That is, there exists $x in RR$ such that $x = cos(x)$.
+
+#sym.qed
+
+= 3.4.5
+
+== 3.4.5 (a)
+
+Consider the sequence ${x_n}$ defined by
+$
+x_1 &= a \
+x_(n+1) &= f(x_n) "."
+$
+
+We will now show that either the sequence is convergent and the limit is a fixed point,
+or it "crosses the diagonal" on the graph of $f$ and the point where it crosses is a fixed point.
+
+=== Case 1: ${x_n}$ Increasing
+
+The sequence ${x_n}$ is bounded above by $b$, so if it is increasing then by the Monotone Convergence Theorem it converges to some $x in [a, b]$.
+
+By the continuity of $f$, we have
+$
+x_n &--> x \
+f(x_n) &--> f(x) "."
+$
+
+Now consider the subsequence skipping the first element, ${x_(n+1)}$.
+By definition, $x_(n+1) = f(x_n)$, so this is the same as the sequence ${f(x_n)}$.
+Subsequences of a convergent sequence converge to the same limit, so $ f(x_n) --> x "." $
+
+The limit of a sequence is unique, so $f(x) = x$.
+
+=== Case 2: ${x_n}$ Non-Increasing
+
+Then there exists $N in NN$ such that $x_N > x_(N+1)$.
+That is, $x_N > f(x_N)$.
+
+If $f(a) = a$, then we are done. Otherwise, we have $a < f(a)$. 
+
+As in the last problem, we apply the solution to Exercise 3.4.2
+to find $x in [a, x_N]$ such that
+$ id(x) = f(x) "." $
+
+That is, $f(x) = x$.
+
+#sym.qed
+
+== 3.4.5 (b)
+
+By part (a), we know that $f$ has at least one fixed point.
+
+Now let $x, y in [a, b]$ be two fixed points of $f$,
+and suppose by contradiction that $x != y$.
+
+Then by the premise, we have
+$ abs(f(x) - f(y)) < abs(x - y) "." $
+
+Substituting $x$ for $f(x)$ and $y$ for $f(y)$, we have
+$ abs(x - y) < abs(x - y) "." $
+
+Which is a contradiction.
+Therefore, $x = y$ and $f$ has exactly one fixed point.
+
+#sym.qed
