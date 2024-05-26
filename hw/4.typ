@@ -240,10 +240,27 @@ That is, the sequences are identical, and therefore converge to the same value, 
 
 = 3.4.1
 
+#lemma[
+   _Lemma_:
+
+   For any $x in RR$,
+   the constant function $f : D -> RR$ given by $f(x) = gamma$
+   is continuous on $D$.
+
+   _Proof_:
+
+   Let $c in D$ and $epsilon > 0$ be given, and define $delta = 1$.
+
+   Then for any $x in D$ such that $abs(x - c) < delta$,
+   we have $ abs(f(x) - f(c)) = abs(gamma - gamma) = 0 < epsilon "." $
+
+   #sym.qed
+]
+
 Consider the function $f_gamma : D -> RR$ defined by
 $ f_gamma (x) = f(x) - gamma "." $
 
-Note that $f$ is continuous on $D$ by Theorem 3.3.3 (considering $gamma$ as a constant function $D -> RR$).
+Note that $f_gamma$ is continuous on $D$ by Theorem 3.3.3 (considering $gamma$ as a constant function $D -> RR$).
 
 We have that $f(c) > gamma$, so
 subtracting $gamma$ from both sides gives $f_gamma (c) < 0$.
@@ -285,7 +302,26 @@ That is, $f(x_0) - g(x_0) = 0$. So $f(x_0) = g(x_0)$.
 
 = 3.4.3
 
-Consider the identity and cosine functions on $RR$.
+#lemma[
+   _Lemma_:
+
+   The identity function $id : RR -> RR$ is continuous.
+
+   _Proof_:
+
+   Let $c in RR$ and $epsilon > 0$ be given.
+   Define $delta = epsilon$.
+
+   Then for any $x in RR$ such that $abs(x - c) < delta$,
+   we have $ abs(id(x) - id(c)) = abs(x - c) < delta = epsilon "." $
+
+   Therefore, $id$ is continuous at any $c in RR$.
+
+   #sym.qed
+]
+
+Consider the identity and cosine functions on $RR$,
+denoted by $id$ and $cos$, respectively.
 
 Note that
 - $id(0) = 0 < 1 = cos(0)$ and
